@@ -133,7 +133,6 @@ namespace RTC
 
 		this->mapProducerSpeaker[producer->id].producer = producer;
 		this->mapProducerSpeaker[producer->id].speaker  = new Speaker();
-		MS_DUMP("Add PRODUCER: COUNT = %lu", this->mapProducerSpeaker.size());
 	}
 
 	void ActiveSpeakerObserver::RemoveProducer(RTC::Producer* producer)
@@ -154,7 +153,7 @@ namespace RTC
 		}
 
 		this->mapProducerSpeaker.erase(producer->id);
-		MS_DUMP("REMOVE PRODUCER: COUNT = %lu", this->mapProducerSpeaker.size());
+
 		if (producer->id == this->dominantId)
 		{
 			this->dominantId.erase();
@@ -202,7 +201,7 @@ namespace RTC
 
 		if (!packet->ReadSsrcAudioLevel(volume, voice))
 			return;
-		volume = -volume;
+		volume  = -volume;
 		auto it = this->mapProducerSpeaker.find(producer->id);
 
 		if (it != this->mapProducerSpeaker.end())
@@ -255,7 +254,6 @@ namespace RTC
 		{
 			json data          = json::object();
 			data["producerId"] = this->dominantId;
-			MS_DUMP("New Dominant Speaker: %s", this->dominantId.c_str());
 			Channel::ChannelNotifier::Emit(this->id, "dominantspeaker", data);
 		}
 	}
@@ -311,7 +309,7 @@ namespace RTC
 				for (int interval = 0; interval < this->relativeSpeachActivitiesLen; ++interval)
 				{
 					this->relativeSpeachActivities[interval] = std::log(
-						speaker->GetActivityScore(interval) / dominantSpeaker->GetActivityScore(interval) );
+					  speaker->GetActivityScore(interval) / dominantSpeaker->GetActivityScore(interval));
 				}
 
 				double c1 = this->relativeSpeachActivities[0];
