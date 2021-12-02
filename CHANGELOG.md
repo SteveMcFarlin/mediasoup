@@ -1,6 +1,12 @@
 # Changelog
 
 
+### WIP
+
+* Single H264/H265 codec configuration in `supportedRtpCapabilities` (PR #718).
+* Update NPM deps.
+
+
 ### 3.9.2
 
 * `pipeToRouter()`: Reuse same `PipeTransport` when possible (PR #697).
