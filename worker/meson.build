@@ -101,6 +101,7 @@ common_sources = [
   'src/RTC/Codecs/H264.cpp',
   'src/RTC/Codecs/VP8.cpp',
   'src/RTC/Codecs/VP9.cpp',
+  'src/RTC/Codecs/AV1.cpp',
   'src/RTC/RtpDictionaries/Media.cpp',
   'src/RTC/RtpDictionaries/Parameters.cpp',
   'src/RTC/RtpDictionaries/RtcpFeedback.cpp',

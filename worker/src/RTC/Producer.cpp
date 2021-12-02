@@ -23,6 +23,8 @@ namespace RTC
 	  : id(id), listener(listener)
 	{
 		MS_TRACE();
+		
+		MS_DUMP("%s", data.dump().c_str());
 
 		auto jsonKindIt = data.find("kind");
 
