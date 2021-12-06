@@ -24,6 +24,7 @@ namespace RTC
 		void AV1::ProcessRtpPacket(RTC::RtpPacket* packet)
 		{
 			MS_TRACE();
+			MS_DUMP("AV1 Process packet\n");
 		}
 
 		/* Instance methods. */

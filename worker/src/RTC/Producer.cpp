@@ -612,7 +612,7 @@ namespace RTC
 		if (!rtpStream)
 		{
 			MS_WARN_TAG(rtp, "no stream found for received packet [ssrc:%" PRIu32 "]", packet->GetSsrc());
-
+			MS_DUMP("no stream found for received");
 			return ReceiveRtpPacketResult::DISCARDED;
 		}
 
@@ -630,6 +630,7 @@ namespace RTC
 			// Process the packet.
 			if (!rtpStream->ReceivePacket(packet))
 			{
+				MS_DUMP("Processing media packet");
 				// May have to announce a new RTP stream to the listener.
 				if (this->mapSsrcRtpStream.size() > numRtpStreamsBefore)
 					NotifyNewRtpStream(rtpStream);

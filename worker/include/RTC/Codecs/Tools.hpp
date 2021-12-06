@@ -6,6 +6,7 @@
 #include "RTC/Codecs/PayloadDescriptorHandler.hpp"
 #include "RTC/Codecs/VP8.hpp"
 #include "RTC/Codecs/VP9.hpp"
+#include "RTC/Codecs/AV1.hpp"
 #include "RTC/RtpDictionaries.hpp"
 #include "RTC/RtpPacket.hpp"
 
@@ -29,6 +30,7 @@ namespace RTC
 							case RTC::RtpCodecMimeType::Subtype::VP8:
 							case RTC::RtpCodecMimeType::Subtype::VP9:
 							case RTC::RtpCodecMimeType::Subtype::H264:
+							case RTC::RtpCodecMimeType::Subtype::AV1:
 								return true;
 							default:
 								return false;
@@ -44,6 +46,7 @@ namespace RTC
 
 			static void ProcessRtpPacket(RTC::RtpPacket* packet, const RTC::RtpCodecMimeType& mimeType)
 			{
+				MS_DUMP("Mime-Type: %d", mimeType.type);
 				switch (mimeType.type)
 				{
 					case RTC::RtpCodecMimeType::Type::VIDEO:
@@ -68,6 +71,13 @@ namespace RTC
 							{
 								RTC::Codecs::H264::ProcessRtpPacket(packet);
 
+								break;
+							}
+								
+							case RTC::RtpCodecMimeType::Subtype::AV1:
+							{
+								RTC::Codecs::AV1::ProcessRtpPacket(packet);
+								
 								break;
 							}
 

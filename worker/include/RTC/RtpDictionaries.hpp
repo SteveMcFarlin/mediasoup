@@ -63,6 +63,7 @@ namespace RTC
 			H264,
 			X_H264UC,
 			H265,
+			AV1,
 			// Complementary codecs:
 			CN = 300,
 			TELEPHONE_EVENT,

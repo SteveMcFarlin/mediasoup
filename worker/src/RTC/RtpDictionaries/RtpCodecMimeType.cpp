@@ -38,6 +38,7 @@ namespace RTC
 		{ "h264",            RtpCodecMimeType::Subtype::H264            },
 		{ "x-h264uc",        RtpCodecMimeType::Subtype::X_H264UC        },
 		{ "h265",            RtpCodecMimeType::Subtype::H265            },
+		{ "av1",             RtpCodecMimeType::Subtype::AV1             },
 		// Complementary codecs:
 		{ "cn",              RtpCodecMimeType::Subtype::CN              },
 		{ "telephone-event", RtpCodecMimeType::Subtype::TELEPHONE_EVENT },
@@ -65,6 +66,7 @@ namespace RTC
 		{ RtpCodecMimeType::Subtype::H264,            "H264"            },
 		{ RtpCodecMimeType::Subtype::X_H264UC,        "X-H264UC"        },
 		{ RtpCodecMimeType::Subtype::H265,            "H265"            },
+		{ RtpCodecMimeType::Subtype::AV1,             "AV1"            	},
 		// Complementary codecs:
 		{ RtpCodecMimeType::Subtype::CN,              "CN"              },
 		{ RtpCodecMimeType::Subtype::TELEPHONE_EVENT, "telephone-event" },
